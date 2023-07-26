@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+.header{
+    @apply w-full flex justify-center items-center bg-white p-4 sm:px-8 border-b border-b-[#e5e8ef]
+}
+
+.main{
+    @apply px-4 py-4 sm:p-8 w-full min-h-[calc(100vh - 73px)] bg-[#f9fafe]
+}
+
+.post-btn{
+    @apply bg-[#6c71f3] text-center text-white px-4 py-2 rounded-md font-inter font-medium;
+}
+
+@media screen and (min-width: 480px) {
+    .card:nth-child(7n + 1) {
+        grid-column: auto/span 2;
+        grid-row: auto/span 2;
+    }
+}
+
+
+.prompt::-webkit-scrollbar {
+    width: 5px;
+}
+ 
+.prompt::-webkit-scrollbar-thumb {
+  background-color: #666e75;
+  border-radius: 5px;
+}
