@@ -1,6 +1,6 @@
-import download from './download';
-import preview from './preview';
-import logo from './logo';
+import download from './download.png';
+import preview from './preview.png';
+import logo from './logo.svg';
 
 export {
     download,
