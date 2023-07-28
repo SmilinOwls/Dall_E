@@ -3,8 +3,8 @@ import photoController from '../controllers/photoController';
 
 const router = express.Router();
 
-router.get('/', photoController.inital, photoController.getPhoto);
+router.get('/', photoController.initial, photoController.getPhoto);
 
-router.post('/', photoController.inital, photoController.createPhoto);
+router.post('/', photoController.initial, photoController.createPhoto);
 
 export default router;

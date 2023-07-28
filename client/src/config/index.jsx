@@ -4,7 +4,7 @@ export const config = {
     production: '',
   },
   API: {
-    share: '/api/v1/share',
+    photo: '/api/v1/photo',
     dalle: '/api/v1/dalle'
   }
 };

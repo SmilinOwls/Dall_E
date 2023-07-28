@@ -2,7 +2,7 @@ import ImgCard from './ImgCard';
 
 function Card({ searchText, data }) {
     let emptyDataMessage = 'No Posts Yet';
-    let images = data.posts;
+    let images = data.photos;
 
     if(searchText) {
         emptyDataMessage = 'No Search Results Found';

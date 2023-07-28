@@ -6,7 +6,7 @@ import { getRandomPrompt } from '../utils';
 import { FormField, Loader } from '../components';
 import { config } from '../config';
 
-function AddPost() {
+function AddPhoto() {
   const { HOST, API } = config;
   const host = HOST.development;
 
@@ -72,7 +72,7 @@ function AddPost() {
   const handleShare = async () => {
     if (!photo.src) return alert('Please generate an image!');
     let controller;
-    const api = API.share;
+    const api = API.photo;
 
     try {
       controller = new AbortController();
@@ -171,4 +171,4 @@ function AddPost() {
   )
 }
 
-export default AddPost
+export default AddPhoto

@@ -10,7 +10,7 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     searchResults: [],
-    posts: []
+    photos: []
   });
 
   const searchText = useRef('');
@@ -32,7 +32,7 @@ function Home() {
       });
 
       const result = await response.json();
-      setData({...data, posts: result.data.reverse()});
+      setData({...data, photos: result.data.reverse()});
 
     } catch (error) {
       alert(error);
@@ -56,8 +56,8 @@ function Home() {
     
     searchText.current = value;
     setTimeout(() => {
-      const searchResult = data.posts.filter(
-        (post) => [post.name, post.prompt].filter((item) => item.toLowerCase().includes(value.toLowerCase())).length > 0
+      const searchResult = data.photos.filter(
+        (photo) => [photo.name, photo.prompt].filter((item) => item.toLowerCase().includes(value.toLowerCase())).length > 0
       );
       setData({ ...data, searchResults: searchResult });
     }, 500);

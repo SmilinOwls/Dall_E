@@ -3,12 +3,12 @@ import React from 'react'
 import { download } from '../../assets';
 import { downloadImage } from '../../utils';
 
-function ImgCard({ _id, name, prompt, photo}) {
+function ImgCard({ _id, name, prompt, src}) {
   return (
     <div className='card group relative shadow-card rounded-xl hover:shadow-cardhover'>
         <img 
             className='w-full object-cover rounded-xl'
-            src={photo}
+            src={src}
             alt={prompt}
         />
         <div className='absolute bottom-0 left-0 right-0 my-2 p-4 bg-[#10131f] rounded-md group-hover:flex flex-col hidden'>

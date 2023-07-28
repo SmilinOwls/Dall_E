@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './utils/connectDB';
-import dallRoute from './routes/dalleRoute';
+import dalleRoute from './routes/dalleRoute';
 import photoRoute from './routes/photoRoute';
 
 dotenv.config();
@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 
 app.use('/api/v1/photo', photoRoute);
-app.use('/api/v1/photo', dallRoute);
+app.use('/api/v1/dalle', dalleRoute);
 
 app.get('/', async (req, res) => {
     res.status(200).json({
