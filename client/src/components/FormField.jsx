@@ -6,7 +6,8 @@ function FormField({
     name,
     placeholder,
     value,
-    handleChange
+    handleChange,
+    children
 }) {
   return (
     <div>
@@ -14,6 +15,7 @@ function FormField({
             <label htmlFor={name} className="block text-sm font-semibold text-[#727171]">
                 { labelName }
             </label>
+            {children}
         </div>
         <input
             type={type}

@@ -4,7 +4,9 @@ import { Card, FormField, Loader } from '../components';
 import { config } from '../config';
 
 function Home() {
-
+  const { HOST, API } = config;
+  const host = HOST.development;
+  
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     searchResults: [],
@@ -16,11 +18,12 @@ function Home() {
 
   const fetchPosts = async () => {
     setLoading(true);
+    const api = API.dalle;
 
     try {
       controller = new AbortController();
       const signal = controller.signal;
-      const response = await fetch(config.development.backendUrl, {
+      const response = await fetch(host.concat(api), {
         method: 'GET',
         headers: {
           'Content-Type': 'appplication/json',

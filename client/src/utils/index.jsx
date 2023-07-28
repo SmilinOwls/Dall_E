@@ -1,6 +1,6 @@
 import { promptSample } from '../constants';
 
-export function randomPrompt(prompt) {
+export function getRandomPrompt(prompt) {
     let randIndex = 0;
     let randPrompt = promptSample[0];
 
