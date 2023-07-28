@@ -1,7 +1,7 @@
 import Home from "./Home";
-import AddPost from "./AddPost";
+import AddPhoto from "./AddPhoto";
 
 export {
     Home,
-    AddPost
+    AddPhoto
 }

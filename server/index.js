@@ -21,7 +21,7 @@ app.get('/', async (req, res) => {
     });
 });
 
-connectDB(process.env.MONGODB_URL);
+connectDB(process.env.MONGODB_URI);
 app.listen(PORT, () => {
     console.log('Server started on port ', PORT);
 });

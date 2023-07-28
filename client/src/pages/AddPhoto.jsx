@@ -106,7 +106,7 @@ function AddPhoto() {
   return (
     <div>
       <div className='mt-2'>
-        <h2 className='text-[30px] text-[#242428] font-bold'>Add</h2>
+        <h2 className='text-[30px] text-[#242428] font-bold'>Let's create!</h2>
         <p className='mt-2 text-[#777a7e] text-sm'>Generate an imaginative image through DALL-E AI and share it with the community</p>
       </div>
       <div className='mt-10'>

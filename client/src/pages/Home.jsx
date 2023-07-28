@@ -18,7 +18,7 @@ function Home() {
 
   const fetchPosts = async () => {
     setLoading(true);
-    const api = API.dalle;
+    const api = API.photo;
 
     try {
       controller = new AbortController();
