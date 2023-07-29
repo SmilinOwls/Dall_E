@@ -1,11 +1,9 @@
 import React, { useState, useRef } from 'react'
 import { useEffect } from 'react';
 import { Card, FormField, Loader } from '../components';
-import { config } from '../config';
+import DataAPI from '../utils/DataAPI';
 
 function Home() {
-  const { HOST, API } = config;
-  const host = HOST.development;
   
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
@@ -14,26 +12,13 @@ function Home() {
   });
 
   const searchText = useRef('');
-  let controller = null;
 
-  const fetchPosts = async () => {
+  const fetchPhoto = async () => {
     setLoading(true);
-    const api = API.photo;
 
     try {
-      controller = new AbortController();
-      const signal = controller.signal;
-      const response = await fetch(host.concat(api), {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'appplication/json',
-        },
-        signal: signal
-      });
-
-      const result = await response.json();
-      setData({...data, photos: result.data.reverse()});
-
+      const data = await DataAPI.getAllPhoto();
+      setData({...data, photos: data.photos.reverse()});
     } catch (error) {
       alert(error);
     } finally{
@@ -43,7 +28,7 @@ function Home() {
   };
 
   // useEffect(() => {
-  //   fetchPosts();
+  //   fetchPhoto();
   //   return () => {
   //     if(controller){
   //       controller.abort();

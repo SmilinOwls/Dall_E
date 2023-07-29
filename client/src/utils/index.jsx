@@ -21,3 +21,4 @@ export function downloadImage(id, photo) {
     link.click();
     document.body.removeChild(link);
 };
+

@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import DataAPI from '../utils/DataAPI';
 import { preview } from '../assets';
 import { getRandomPrompt } from '../utils';
 import { FormField, Loader } from '../components';
-import { config } from '../config';
 
 function AddPhoto() {
-  const { HOST, API } = config;
-  const host = HOST.development;
-
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [generatingImg, setGeneratingImg] = useState(false);
@@ -36,60 +32,28 @@ function AddPhoto() {
 
   const handleGenerateImage = async () => {
     if (!form.prompt) return alert('Please enter proper prompt!');
-    let controller;
-    const api = API.dalle;
 
     try {
-      controller = new AbortController();
-      const signal = controller.signal;
 
       setGeneratingImg(true);
 
-      const response = await fetch(host.concat(api), {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'appplication/json',
-        },
-        signal: signal,
-        body: JSON.stringify({
-          prompt: form.prompt
-        })
-      });
-
-      const data = await response.json();
+      const data = await DataAPI.createPhoto(form);
       setPhoto({ form: form, src: `data:image/jpeg;base64, ${data.photo}` });
 
     } catch (error) {
       console.log(error);
     } finally {
       setGeneratingImg(false);
-      if (controller) {
-        controller.abort();
-      }
     }
   };
 
   const handleShare = async () => {
     if (!photo.src) return alert('Please generate an image!');
-    let controller;
-    const api = API.photo;
 
     try {
-      controller = new AbortController();
-      const signal = controller.signal;
-
       setLoading(true);
 
-      const response = await fetch(host.concat(api), {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'appplication/json',
-        },
-        signal: signal,
-        body: JSON.stringify({
-          ...photo
-        })
-      });
+      await DataAPI.sharePhoto(photo);
 
       alert('Sucess');
       navigate('/');
@@ -97,9 +61,6 @@ function AddPhoto() {
       console.log(error);
     } finally {
       setLoading(false);
-      if (controller) {
-        controller.abort();
-      }
     }
   };
 

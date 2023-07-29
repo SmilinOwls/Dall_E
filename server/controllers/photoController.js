@@ -10,7 +10,7 @@ const photoController = {
         });
         next();
     },
-    getPhoto: async (req, res) => {
+    getAllPhoto: async (req, res) => {
         try {
             const photos = await Photo.find({});
             res.status(200).json({sucess: true, data: photos});
@@ -18,7 +18,7 @@ const photoController = {
             res.status(500).json({success: false, message: 'Fetching posts failed, please try again' });
         }
     },
-    createPhoto: async (req, res) => {
+    sharePhoto: async (req, res) => {
         try {
             const { name, prompt, src } = req.body;
             const photoUrl = await cloudinary.uploader.upload(src);
