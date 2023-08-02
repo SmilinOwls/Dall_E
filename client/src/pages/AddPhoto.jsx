@@ -73,23 +73,23 @@ function AddPhoto() {
       <div className='mt-10'>
         <div className='flex flex-col gap-6'>
           <FormField
-            labelName="Your Name"
-            type="text"
-            name="name"
-            placeholder="Ex., dalle doe"
+            labelName='Your Name'
+            type='text'
+            name='name'
+            placeholder='Ex., dalle doe'
             value={form.name}
             handleChange={handleChange}
           />
           <FormField
-            labelName="Prompt"
-            type="text"
-            name="prompt"
-            placeholder="An Impressionist oil painting of sunflowers in a purple vase…"
+            labelName='Prompt'
+            type='text'
+            name='prompt'
+            placeholder='An Impressionist oil painting of sunflowers in a purple vase…'
             value={form.prompt}
             handleChange={handleChange}
           >
             <button
-              type="button"
+              type='button'
               className='text-xs font-bold rounded-[5px] text-center text-[#2f2f2f] px-2.5 py-1 bg-[#EcECF1]'
               onClick={handleRandomPrompt}
             >
@@ -100,9 +100,9 @@ function AddPhoto() {
 
         <div className=''>
           {photo.src ? (
-            <img src={photo.src} alt={photo.prompt} className="w-full h-full object-contain" />
+            <img src={photo.src} alt={photo.prompt} className='w-full h-full object-contain' />
           ) : (
-            <img src={preview} alt="preview" className="w-11/12 h-11/12 object-contain opacity-50" />
+            <img src={preview} alt='preview' className='w-11/12 h-11/12 object-contain opacity-50' />
           )}
 
           {generatingImg && (

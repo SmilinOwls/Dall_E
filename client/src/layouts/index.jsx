@@ -6,11 +6,11 @@ function AppLayout() {
     return (
         <>
             <header className='header'>
-                <Link to="/">
+                <Link to='/'>
                     <img src={logo} alt='logo' className='w-28 object-contain' />
                 </Link>
 
-                <Link to="/add-post" className='post-btn'>
+                <Link to='/add-post' className='post-btn'>
                     Add
                 </Link>
             </header>

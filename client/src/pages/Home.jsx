@@ -56,17 +56,17 @@ function Home() {
       </div>
       <div className='mt-5'>
         <FormField
-          labelName="Search post"
-          name="text"
-          type="text"
-          placeholder="Enter something to search.."
+          labelName='Search post'
+          name='text'
+          type='text'
+          placeholder='Enter something to search..'
           value={searchText.current}
           handleChange={handleSearchText}
         />
       </div>
       <div className='mt-10'>
         {loading ? (
-          <div className="flex justify-center items-center">
+          <div className='flex justify-center items-center'>
             <Loader />
           </div>
         ) : (
